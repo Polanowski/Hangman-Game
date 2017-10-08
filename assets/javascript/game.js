@@ -21,7 +21,7 @@ var end = false;
 
 var computerChoice = ["cat", "dog", "play", "horse", "cow", "egg", "lynx", "waltz", "hoax", "knight", "ghost", "spongy", "lizard", "wizard", "hymn", "spandex", "tea","slip","hat"];
 var storeLetter = "";
-var storeWord = 0;
+var storeWord = [];
 
 function computerWord () {
     var randWord = computerChoice[Math.floor(Math.random() * computerChoice.length)];
@@ -29,26 +29,19 @@ function computerWord () {
     for (var i = 0; i < randWord.length; i++) {
 		$(".guess").append("<span>");
 	  	$("span").addClass("border-bottom");
-	  	console.log(randWord);
+	  	storeWord = randWord;
 	}
 }
 computerWord();
+//storeWord.length;
+var storeArray = storeWord.split("");
+console.log(storeArray);
 
-$(".letter").click(function() {
-	if (true) {
-	  $(".border-bottom").text(this.value);
-	  storeLetter += this.value; //holds the letter that was selected press
-	  console.log(storeLetter);
-
-
-	} else {
-		
-	}
+	$(".letter").click(function() {
+		$(".border-bottom").text(this.value);
+		storeLetter += this.value; //holds the letter that was selected press
+		console.log(storeLetter);
 });
-
-
-
-
 
 
 /*Clear out the previous guesses
