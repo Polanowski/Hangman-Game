@@ -15,33 +15,64 @@ $(document).ready(function(){
 var wins = 0;
 var losses = 0;
 var play = 0;
+var guesses = [];
 var start = true;
 var end = false;
 //Create an array of words that the computer will randomly pick from
 
 var computerChoice = ["cat", "dog", "play", "horse", "cow", "egg", "lynx", "waltz", "hoax", "knight", "ghost", "spongy", "lizard", "wizard", "hymn", "spandex", "tea","slip","hat"];
 var storeLetter = "";
-var storeWord = [];
+var storeWord = "";
 
 function computerWord () {
     var randWord = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     console.log(randWord); //randWord is local to the function computerWord
     for (var i = 0; i < randWord.length; i++) {
-		$(".guess").append("<span>");
+		$(".guess").append("<span class='"+ i +"'>");
 	  	$("span").addClass("border-bottom");
 	  	storeWord = randWord;
 	}
 }
-computerWord();
-//storeWord.length;
-var storeArray = storeWord.split("");
-console.log(storeArray);
 
+// function letterChecker (){
+// 	console.log("letter checker started");
+// 	if ($(".letter")){
+
+// 	}
+// 	console.log("letter checker ended");
+// }
+
+/*for (var j = 0; j < storeWord.length; j++){
+	$("span").addClass(storeWord[j]);
+}*/
+
+
+computerWord();
+// letterChecker();
+//storeWord.length;
+var storeWord = storeWord.split(""); //storeWord.charAt(2).toUpperCase();
+console.log(storeWord);
 	$(".letter").click(function() {
-		$(".border-bottom").text(this.value);
-		storeLetter += this.value; //holds the letter that was selected press
-		console.log(storeLetter);
+		if($(".0").text(this.value) == $(".letter").value){
+			$(".border-bottom").push(this.value);
+		}
+
+
+		// for (var i = 0; i < storeWord.length; i++) {
+			
+		// }
+		// //storeLetter += this.value; //holds the letter that was selected
+		// console.log(storeLetter);
+		// var test = this.value;
+		// console.log(test);
+		// if (storeWord == test) {
+		// 	console.log(test);
+
+		// }
+
 });
+
+
 
 
 /*Clear out the previous guesses
